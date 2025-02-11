@@ -1,0 +1,7 @@
+{
+  "name": "taskMasterAI",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
