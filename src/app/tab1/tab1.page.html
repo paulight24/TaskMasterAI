@@ -1,12 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Tasks
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-input [(ngModel)]="inputText" placeholder="Type a task..."></ion-input>
+    <ion-button (click)="addTask()">➕</ion-button>
+    <ion-button (click)="addTaskViaVoice()">🎤</ion-button>
+    <hr />
+    <ion-button (click)="addTask()">Start</ion-button>
+    <ion-button (click)="addTaskViaVoice()">Stop</ion-button>
+
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let task of tasks">
+      {{ task.title }}
+      <ion-button fill="clear" (click)="readTask(task.title)">🔊</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
@@ -14,4 +33,4 @@
   </ion-header>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+</ion-content> -->

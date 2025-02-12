@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">taskMasterAI</string>
+    <string name="title_activity_main">taskMasterAI</string>
+    <string name="package_name">io.e4wtech.taskmasterai</string>
+    <string name="custom_url_scheme">io.e4wtech.taskmasterai</string>
+</resources>

@@ -1,17 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Tasks</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Input and Add Task Buttons -->
+  <ion-item>
+    <ion-label position="floating">Add Task</ion-label>
+    <ion-textarea [(ngModel)]="inputText"></ion-textarea>
+  </ion-item>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-item lines="none">
+    <ion-button [disabled]="!inputText.trim()" expand="full" (click)="addTask(inputText)">Add Task</ion-button>
+  </ion-item>
+
+  <!-- Task List using @for() -->
+  <ion-list>
+    @for (task of tasks; track task.objectId) {
+    <ion-item>
+      <ion-label>
+        {{ task.title }}
+        <ion-button fill="clear" (click)="readTask(task.title)">🔊</ion-button>
+      </ion-label>
+
+      <ion-button *ngIf="task.objectId" fill="clear" color="danger" (click)="deleteTask(task.objectId)">
+        Delete
+      </ion-button>
+    </ion-item>
+    }
+  </ion-list>
 </ion-content>
